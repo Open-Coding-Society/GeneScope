@@ -7,7 +7,6 @@ menu: nav/home.html
 ---
 
 <style>
-  /* Glowing nav button style */
   .nav-btn {
     position: relative;
     padding: 10px 20px;
@@ -23,17 +22,14 @@ menu: nav/home.html
     box-shadow: 0 0 0 0 transparent;
     transition: all 0.2s ease-in;
   }
-
   .nav-btn:hover {
     background: rgb(61, 106, 255);
     box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
     color: black;
   }
-
   .nav-btn:hover::before {
     animation: sh02 0.5s 0s linear;
   }
-
   .nav-btn::before {
     content: '';
     display: block;
@@ -47,39 +43,17 @@ menu: nav/home.html
     box-shadow: 0 0 50px 30px #fff;
     transform: skewX(-20deg);
   }
-
   @keyframes sh02 {
-    from {
-      opacity: 0;
-      left: 0%;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    to {
-      opacity: 0;
-      left: 100%;
-    }
+    from { opacity: 0; left: 0%; }
+    50% { opacity: 1; }
+    to { opacity: 0; left: 100%; }
   }
-
   .nav-btn:active {
     box-shadow: 0 0 0 0 transparent;
     transition: box-shadow 0.2s ease-in;
   }
-
-  /* Button text & page styles */
   h1, p, label, span, input, button {
     color: black;
-  }
-
-  .span {
-    transform: skewX(15deg);
-  }
-
-  .second {
-    margin-left: 10px;
   }
 </style>
 
@@ -87,10 +61,12 @@ menu: nav/home.html
   <div class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
     <h1 class="text-2xl font-bold text-center">🩺 Disease Risk Analysis Quiz</h1>
     <p class="mt-2 text-center text-base">Enter a disease to check your symptom risk level.</p>
+
     <form id="disease-form" onsubmit="startQuiz(event)" class="mt-6 flex flex-col gap-2">
       <input type="text" id="disease" placeholder="e.g., diabetes" required class="p-2 border border-gray-300 rounded text-base" />
       <button type="submit" class="nav-btn w-fit self-center mt-4">Start Quiz</button>
     </form>
+
     <form id="symptom-form" style="display:none;" onsubmit="submitSymptoms(event)" class="mt-6">
       <div id="symptom-questions"></div>
       <div class="flex justify-center">
@@ -104,6 +80,7 @@ menu: nav/home.html
 
 <script>
   const BACKEND_URL = "http://127.0.0.1:8504";
+  const baseUrl = "{{ site.baseurl }}";
   let currentQuestionIndex = 0;
   let symptomList = [];
   const userAnswers = {};
@@ -117,7 +94,7 @@ menu: nav/home.html
     result.textContent = "";
 
     try {
-      const res = await fetch(`${BACKEND_URL}/riskquiz/get_symptoms?disease=${encodeURIComponent(disease)}`);
+      const res = await fetch(`${BACKEND_URL}/riskquiz/api/get_symptoms?disease=${encodeURIComponent(disease)}`);
       if (!res.ok) throw new Error("Disease not found.");
       const data = await res.json();
 
@@ -185,8 +162,6 @@ menu: nav/home.html
     }
   }
 
-  const baseUrl = "{{ site.baseurl }}";
-
   function restartQuiz() {
     window.location.href = baseUrl + "/risk-quiz/";
   }
@@ -196,7 +171,7 @@ menu: nav/home.html
     const result = document.getElementById("result");
 
     try {
-      const res = await fetch(`${BACKEND_URL}/riskquiz/predict`, {
+      const res = await fetch(`${BACKEND_URL}/riskquiz/api/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userAnswers)
