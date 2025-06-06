@@ -8,164 +8,123 @@ menu: nav/home.html
 
 <div class="pt-6"></div>
 
-<div class="trivia-container space-y-6 p-6 bg-blue-100 rounded-2xl shadow-2xl max-w-2xl mx-auto font-[Comic Sans MS,cursive,sans-serif]">
-  <h2 class="text-3xl font-extrabold text-blue-800 text-center">🧬 Genetics Trivia Challenge 🧠</h2>
+<!-- Container for uniform width -->
+<div class="max-w-2xl mx-auto space-y-6">
 
-  <div class="text-center space-y-4">
-    <button id="showInstructionsButton"
-      class="bg-blue-400 text-white px-4 py-2 rounded-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md transition duration-300">
-      ℹ️ How to Play
-    </button>
-    <div class="flex justify-center items-center space-x-4">
-      <label for="difficultySelect" class="font-semibold text-blue-800">Select Difficulty:</label>
-      <select id="difficultySelect" class="rounded-md px-3 py-2 border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-300">
-        <option value="easy" selected>Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
-    </div>
-  </div>
-    <button id="startGameButton"
-      class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md transition duration-300">
-      Start 30‑Second Challenge
-    </button>
-  </div>
-
-  <div id="gameContainer" class="hidden space-y-4">
-    <h3 id="questionText" class="text-xl font-semibold text-blue-900 text-center"></h3>
-    <div id="answersContainer" class="grid grid-cols-2 gap-6"></div>
-    <div class="flex justify-between px-2">
-      <p class="text-blue-800">⏳ Time Left: <span id="timer" class="font-bold text-blue-600">30</span>s</p>
-      <p class="text-blue-800">🌟 Score: <span id="score" class="font-bold text-blue-700">0</span></p>
-    </div>
-  </div>
-
-  <button id="playAgainButton"
-          class="hidden bg-blue-400 text-white px-6 py-3 rounded-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md transition duration-300">
-     Play Again
-  </button>
-
-  <div id="leaderboardContainer" class="space-y-2 max-h-64 overflow-y-auto bg-white p-6 rounded-xl shadow-inner">
-    <h3 class="text-xl font-semibold text-blue-900 text-center">🏆 Leaderboard</h3>
-    <div class="text-center mb-2 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
-      <label for="filterDifficulty" class="text-sm font-medium text-blue-800 mr-2">Filter by Difficulty:</label>
-      <select id="filterDifficulty" class="rounded px-2 py-1 border border-blue-300 focus:outline-none">
-        <option value="all">All</option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
-      <input
-        type="text"
-        id="searchUsername"
-        placeholder="Search username..."
-        class="rounded px-2 py-1 border border-blue-300 focus:outline-none max-w-xs"
-        aria-label="Search leaderboard by username"
-      />
-    </div>
-    <table class="w-full table-auto border-collapse">
-      <thead>
-        <tr class="bg-blue-200">
-          <th class="border px-3 py-2 text-blue-900">Username</th>
-          <th class="border px-3 py-2 text-blue-900">Score</th>
-          <th class="border px-3 py-2 text-blue-900">Difficulty</th>
-        </tr>
-      </thead>
-      <tbody id="leaderboardBody" class="text-blue-800"></tbody>
-    </table>
-  </div>
-  <!-- Genetics Flashcards -->
-  <div class="mt-10 p-6 bg-white rounded-2xl shadow-xl max-w-4xl mx-auto">
-    <h3 class="text-2xl font-bold text-blue-800 text-center mb-4">🧬 Learn Genetics: Flashcards</h3>
-    <div class="flex space-x-4 overflow-x-auto pb-2">
-      <!-- Flashcards Start -->
-      <!-- Gene Flashcards -->
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front"><p class="font-bold text-blue-900">BRCA1</p></div>
-          <div class="flip-card-back"><p class="text-sm text-blue-900">A gene involved in DNA repair; mutations increase breast and ovarian cancer risk.</p></div>
-        </div>
+  <div class="trivia-container space-y-6 p-6 bg-blue-100 rounded-2xl shadow-2xl font-[Comic Sans MS,cursive,sans-serif]">
+    <h2 class="text-3xl font-extrabold text-blue-800 text-center">🧬 Genetics Trivia Challenge 🧠</h2>
+    <div class="text-center space-y-4">
+      <button id="showInstructionsButton"
+        class="bg-blue-400 text-white px-4 py-2 rounded-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md transition duration-300">
+        ℹ️ How to Play
+      </button>
+      <div class="flex justify-center items-center space-x-4">
+        <label for="difficultySelect" class="font-semibold text-blue-800">Select Difficulty:</label>
+        <select id="difficultySelect" class="rounded-md px-3 py-2 border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-300">
+          <option value="easy" selected>Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
       </div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front"><p class="font-bold text-blue-900">TP53</p></div>
-          <div class="flip-card-back"><p class="text-sm text-blue-900">A tumor suppressor gene often mutated in cancer; known as the "guardian of the genome".</p></div>
-        </div>
-      </div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front"><p class="font-bold text-blue-900">APOE</p></div>
-          <div class="flip-card-back"><p class="text-sm text-blue-900">Associated with Alzheimer's disease; has three main variants: ε2, ε3, and ε4.</p></div>
-        </div>
-      </div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Nucleotide</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The building block of DNA and RNA, consisting of a sugar, a phosphate group, and a nitrogenous base.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Double Helix</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The structure of DNA, consisting of two strands that wind around each other like a twisted ladder.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Base Pair</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Two nitrogenous bases bonded together in DNA or RNA; A-T and C-G in DNA.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Transcription</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The process by which a segment of DNA is copied into mRNA.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Translation</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The process where ribosomes use mRNA to assemble amino acids into a protein.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Ribosome</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A cellular structure that assembles proteins by translating mRNA.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Gene</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A segment of DNA that contains the instructions to make a protein or perform a function.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Allele</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A different form of the same gene, typically inherited from each parent.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Genotype</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The genetic makeup of an individual, such as AA, Aa, or aa.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Phenotype</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The physical traits or expression resulting from a genotype.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Chromosome</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A thread-like structure made of DNA that carries genes; humans have 23 pairs.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Mutation</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A change in a DNA sequence that can affect how a gene works.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Dominant Allele</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">An allele that masks the effect of a recessive allele; expressed even if only one copy is present.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Recessive Allele</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">An allele that is only expressed when both alleles are the same (homozygous).</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Homozygous</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Having two identical alleles for a gene, like AA or aa.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Heterozygous</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Having two different alleles for a gene, like Aa.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">DNA</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Deoxyribonucleic acid; carries genetic instructions for all living things.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">RNA</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A molecule that helps decode DNA into proteins; includes mRNA and tRNA.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Protein</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Molecule made from amino acids that performs many functions in the body.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Codon</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A three-nucleotide sequence in mRNA that codes for a specific amino acid.</p></div></div></div>
-      <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Genome</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The complete set of an organism’s DNA, including all its genes.</p></div></div></div>
     </div>
+    <div class="flex justify-center">
+      <button id="startGameButton" class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md transition duration-300">
+        Start 30‑Second Challenge
+      </button>
+    </div>    <div id="gameContainer" class="hidden space-y-4">
+      <h3 id="questionText" class="text-xl font-semibold text-blue-900 text-center"></h3>
+      <div id="answersContainer" class="grid grid-cols-2 gap-6"></div>
+      <div class="flex justify-between px-2">
+        <p class="text-blue-800">⏳ Time Left: <span id="timer" class="font-bold text-blue-600">30</span>s</p>
+        <p class="text-blue-800">🌟 Score: <span id="score" class="font-bold text-blue-700">0</span></p>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <button id="playAgainButton" class="hidden bg-blue-400 text-white px-6 py-3 rounded-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md transition duration-300">
+        Play Again
+      </button>
+    </div>
+    <div id="leaderboardContainer" class="space-y-2 max-h-64 overflow-y-auto bg-white p-6 rounded-xl shadow-inner">
+      <h3 class="text-xl font-semibold text-blue-900 text-center">🏆 Leaderboard</h3>
+      <div class="text-center mb-2 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
+        <label for="filterDifficulty" class="text-sm font-medium text-blue-800 mr-2">Filter by Difficulty:</label>
+        <select id="filterDifficulty" class="rounded px-2 py-1 border border-blue-300 focus:outline-none">
+          <option value="all">All</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <input
+          type="text"
+          id="searchUsername"
+          placeholder="Search username..."
+          class="rounded px-2 py-1 border border-blue-300 focus:outline-none max-w-xs"
+          aria-label="Search leaderboard by username"
+        />
+      </div>
+      <table class="w-full table-auto border-collapse">
+        <thead>
+          <tr class="bg-blue-200">
+            <th class="border px-3 py-2 text-blue-900">Username</th>
+            <th class="border px-3 py-2 text-blue-900">Score</th>
+            <th class="border px-3 py-2 text-blue-900">Difficulty</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody" class="text-blue-800"></tbody>
+      </table>
+    </div>
+     <!-- Genetics Flashcards -->
+    <div class="mt-10 p-6 bg-white rounded-2xl shadow-xl max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold text-blue-800 text-center mb-4">🧬 Learn Genetics: Flashcards</h3>
+      <div class="flex space-x-4 overflow-x-auto pb-2">
+        <!-- Flashcards Start -->
+        <!-- Gene Flashcards -->
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><p class="font-bold text-blue-900">BRCA1</p></div>
+            <div class="flip-card-back"><p class="text-sm text-blue-900">A gene involved in DNA repair; mutations increase breast and ovarian cancer risk.</p></div>
+          </div>
+        </div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><p class="font-bold text-blue-900">TP53</p></div>
+            <div class="flip-card-back"><p class="text-sm text-blue-900">A tumor suppressor gene often mutated in cancer; known as the "guardian of the genome".</p></div>
+          </div>
+        </div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><p class="font-bold text-blue-900">APOE</p></div>
+            <div class="flip-card-back"><p class="text-sm text-blue-900">Associated with Alzheimer's disease; has three main variants: ε2, ε3, and ε4.</p></div>
+          </div>
+        </div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Nucleotide</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The building block of DNA and RNA, consisting of a sugar, a phosphate group, and a nitrogenous base.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Double Helix</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The structure of DNA, consisting of two strands that wind around each other like a twisted ladder.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Base Pair</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Two nitrogenous bases bonded together in DNA or RNA; A-T and C-G in DNA.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Transcription</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The process by which a segment of DNA is copied into mRNA.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Translation</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The process where ribosomes use mRNA to assemble amino acids into a protein.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Ribosome</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A cellular structure that assembles proteins by translating mRNA.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Gene</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A segment of DNA that contains the instructions to make a protein or perform a function.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Allele</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A different form of the same gene, typically inherited from each parent.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Genotype</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The genetic makeup of an individual, such as AA, Aa, or aa.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Phenotype</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The physical traits or expression resulting from a genotype.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Chromosome</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A thread-like structure made of DNA that carries genes; humans have 23 pairs.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Mutation</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A change in a DNA sequence that can affect how a gene works.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Dominant Allele</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">An allele that masks the effect of a recessive allele; expressed even if only one copy is present.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Recessive Allele</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">An allele that is only expressed when both alleles are the same (homozygous).</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Homozygous</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Having two identical alleles for a gene, like AA or aa.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Heterozygous</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Having two different alleles for a gene, like Aa.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">DNA</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Deoxyribonucleic acid; carries genetic instructions for all living things.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">RNA</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A molecule that helps decode DNA into proteins; includes mRNA and tRNA.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Protein</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">Molecule made from amino acids that performs many functions in the body.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Codon</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">A three-nucleotide sequence in mRNA that codes for a specific amino acid.</p></div></div></div>
+        <div class="min-w-[280px] bg-blue-200 rounded-xl p-6 text-center shadow-lg flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="font-bold text-blue-900">Genome</p></div><div class="flip-card-back"><p class="text-sm text-blue-900">The complete set of an organism’s DNA, including all its genes.</p></div></div></div>
+      </div>
+    <p id="message" class="text-red-500 text-center pt-2"></p>
   </div>
 
-  <style>
-    .flip-card {
-      perspective: 1000px;
-      cursor: pointer;
-    }
-
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      border-radius: 1rem;
-    }
-
-    .flip-card-front {
-      background-color: #bfdbfe;
-    }
-
-    .flip-card-back {
-      background-color: #93c5fd;
-      transform: rotateY(180deg);
-    }
-  </style>
-
-  <p id="message" class="text-red-500 text-center pt-2"></p>
 </div>
 
+<!-- Instructions Modal -->
 <div id="instructionsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
   <div class="bg-white rounded-2xl p-6 max-w-xl mx-4 max-h-[80vh] overflow-y-auto shadow-2xl relative">
     <button id="closeInstructions" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-xl font-bold">&times;</button>
