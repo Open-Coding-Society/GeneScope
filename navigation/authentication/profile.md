@@ -233,7 +233,7 @@ show_reading_time: false
         padding: 1rem;
         border-radius: 8px;
         margin: 0;
-        border-left: 3px solid #007cff; /*e53e3e*/
+        border-left: 3px solid #007cff;
     }
 
     .post-title {
@@ -313,7 +313,7 @@ show_reading_time: false
 </div>
 
 <script>
-    // Profile picture upload handling
+    // Handle profile picture upload
     const profilePictureUpload = document.getElementById('profilePictureUpload');
     const profilePicture = document.getElementById('profilePicture');
     const profileMessage = document.getElementById('profile-message');
@@ -334,7 +334,7 @@ show_reading_time: false
         }
     });
 
-    // New Post Handling
+    // Handle new post creation
     const newPostForm = document.getElementById('newPostForm');
     const postsContainer = document.getElementById('postsContainer');
 
@@ -367,4 +367,15 @@ show_reading_time: false
 
         newPostForm.reset();
     });
+
+    // Load logged-in user data from localStorage
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (userData) {
+        if (userData.name) {
+            document.getElementById('username').textContent = userData.name;
+        }
+        if (userData.profilePicture) {
+            document.getElementById('profilePicture').src = userData.profilePicture;
+        }
+    }
 </script>

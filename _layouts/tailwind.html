@@ -40,26 +40,26 @@ layout: null
 
       body {
         font-family: 'Inter', sans-serif;
-        background-color: var(--color-darker); /* Restore intended background color */
-        color: #f0f4f8; /* Ensure text color is light for readability */
-        text-shadow: none; /* Remove text-shadow globally */
+        background-color: var(--color-darker);
+        color: #f0f4f8;
+        text-shadow: none;
       }
 
       h1, h2, h3, p, label, input, select, button, option {
-        text-shadow: none !important; /* Explicitly remove text-shadow */
-        background: transparent; /* Ensure no unwanted background highlights */
-        color: inherit; /* Ensure text color matches the theme */
+        text-shadow: none !important;
+        background: transparent;
+        color: inherit;
       }
 
       select, option {
-        background-color: var(--color-darker); /* Apply grey background to dropdowns */
-        color: #f0f4f8; /* Ensure text is readable */
-        border: 1px solid #3c4c60; /* Add subtle border */
+        background-color: var(--color-darker);
+        color: #f0f4f8;
+        border: 1px solid #3c4c60;
       }
 
       ::selection {
-        background: var(--color-accent); /* Customize text selection background */
-        color: white; /* Customize text selection text color */
+        background: var(--color-accent);
+        color: white;
       }
     </style>
   </head>
@@ -105,7 +105,7 @@ layout: null
               <a href="{{ site.baseurl }}/genes/" class="block px-4 py-2 text-gray-200 hover:bg-accent hover:text-white" role="menuitem" tabindex="0">Genes Activity</a>
             </div>
           </div>
-    
+
           <!-- Quizzes Dropdown -->
           <div
             class="relative group inline-block"
@@ -140,11 +140,23 @@ layout: null
               <a href="{{ site.baseurl }}/career/" class="block px-4 py-2 text-gray-200 hover:bg-accent hover:text-white" role="menuitem" tabindex="0">Career Quiz</a>
             </div>
           </div>
-    
+
           <a href="{{ site.baseurl }}/news" class="text-gray-200 hover:text-accent">Science News</a>
           <a href="{{ site.baseurl }}/about/" class="text-gray-200 hover:text-accent">About Us</a>
-          <a href="{{ site.baseurl }}/search/" class="text-gray-200 hover:text-accent">Search</a>
-          <a id="signup-login" href="{{ site.baseurl }}/login" class="text-gray-300 font-extrabold tracking-tight hover:text-accent">Sign Up | Login</a>
+          <a href="{{ site.baseurl }}/blogs/" class="text-gray-200 hover:text-accent">Documentation</a>
+
+          <!-- Login/Signup Dropdown -->
+          <div class="relative group inline-block" tabindex="0" aria-haspopup="true" aria-expanded="false">
+            <a href="{{ site.baseurl }}/login" class="text-gray-300 font-extrabold tracking-tight hover:text-accent">Sign Up | Login</a>
+            <div
+              class="absolute hidden group-hover:block bg-gray-800 mt-2 rounded-lg shadow-lg z-50 min-w-[150px]"
+              role="menu"
+              aria-label="User menu"
+            >
+              <a href="{{ site.baseurl }}/profile" class="block px-4 py-2 text-gray-200 hover:bg-accent hover:text-white" role="menuitem" tabindex="0">Profile</a>
+              <a href="{{ site.baseurl }}/logout" class="block px-4 py-2 text-gray-200 hover:bg-accent hover:text-white" role="menuitem" tabindex="0">Log Out</a>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

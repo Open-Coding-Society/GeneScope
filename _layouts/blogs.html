@@ -29,7 +29,7 @@ layout: tailwind
     {% for post in posts %}
       <div class="border-t border-gray-200 pt-6">
         <a href="{{ post.url | relative_url }}" class="block">
-          <h3 class="text-2xl font-semibold text-blue-700 hover:underline">{{ post.title }}</h3>
+          <h3 class="text-2xl font-semibold text-blue-200 hover:underline">{{ post.title }}</h3>
           {% if post.excerpt %}
             <p class="text-gray-200 mt-1">{{ post.excerpt | strip_html | truncate: 180 }}</p>
           {% endif %}
